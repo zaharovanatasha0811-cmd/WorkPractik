@@ -1,0 +1,830 @@
+/* Обнуление базовых отступов */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Базовые стили страницы */
+.site-body {
+    background-color: #f3f4f6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Общий технический класс для скрытия окон в JS */
+.hidden {
+    display: none !important;
+}
+
+/* Авторизации и регистрации */
+.auth-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    width: 100%;
+    max-width: 28rem;
+    margin: auto;
+}
+
+.auth-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.auth-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1f2937;
+    text-align: center;
+}
+
+.auth-switch-text {
+    text-align: center;
+    font-size: 0.875rem;
+    color: #4b5563;
+}
+
+.auth-link {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+.error-text {
+    color: #ef4444;
+    font-size: 0.875rem;
+    text-align: center;
+}
+
+/* Личный кабинет */
+.dashboard-info {
+    background-color: #eff6ff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #dbeafe;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.user-greeting {
+    color: #374151;
+}
+
+.user-highlight {
+    font-weight: 700;
+    color: #2563eb;
+}
+
+.date-text {
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.date-highlight {
+    font-weight: 500;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.625rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.form-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary {
+    width: 100%;
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.625rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    width: 100%;
+    background-color: #6b7280;
+    color: #ffffff;
+    padding: 0.625rem;
+    border: none;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
+.btn-large {
+    padding: 1rem 2rem;
+    font-size: 1.125rem;
+    font-weight: 700;
+    background-color: #2563eb;
+    color: #ffffff;
+    border: none;
+    border-radius: 0.75rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.btn-large:hover {
+    background-color: #1d4ed8;
+}
+
+/* Главная страница */
+.main-page {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.site-header {
+    padding: 1.5rem 2rem;
+    background-color: #aaaaaa;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.header-container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.site-logo {
+    color: #296cfd;
+    font-weight: 900;
+    font-size: 1.875rem;
+    letter-spacing: -0.025em;
+}
+
+.site-logo:hover {
+    cursor: pointer;
+    color: #2561e4;
+}
+
+.search-wrapper {
+    width: 18rem;
+}
+
+.search-input {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 9999px;
+    background-color: #f9fafb;
+    font-size: 0.875rem;
+    outline: none;
+    transition: all 0.2s;
+}
+
+.search-input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.2);
+}
+
+.site-content {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1152px;
+    margin: 0 auto;
+}
+
+.hero-section, .info-section {
+    padding: 4rem 1.5rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    align-items: center;
+}
+
+.info-section {
+    border-top: 1px solid #e5e7eb;
+}
+
+.hero-text-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #111827;
+    line-height: 1.15;
+    margin-bottom: 1.5rem;
+}
+
+.accent-text {
+    color: #2563eb;
+}
+
+.desktop-only {
+    display: none;
+}
+
+.info-text-block {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.section-title {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.section-paragraph {
+    font-size: 1.125rem;
+    color: #4b5563;
+    line-height: 1.625;
+}
+
+.image-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+.responsive-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 1rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+}
+
+/* Подвал сайта */
+.site-footer {
+    background-color: #aaaaaa;
+    color: #d1d5db;
+    padding: 3rem 1.5rem;
+    margin-top: auto;
+    border-top: 1px solid #1f2937;
+}
+
+.footer-grid {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.footer-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-col-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #9ca3af;
+    margin-bottom: 0.25rem;
+}
+
+.footer-link-item, .footer-link {
+    font-size: 2rem;
+    color: #000000;
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.footer-link-item:hover, .footer-link:hover {
+    color: #60a5fa;
+}
+
+.footer-copyright {
+    max-width: 1152px;
+    margin: 2rem auto 0;
+    padding-top: 2rem;
+    border-top: 1px solid #1f2937;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #6b7280;
+}
+
+.profil a {
+    font-size: 4 rem;
+}
+
+/* Кнопка авторизации в шапке */
+.btn-header {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 9999px; /* Скругленная кнопка */
+    font-weight: 600;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-header:hover {
+    background-color: #1d4ed8;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+}
+
+/* Стили для отображения имени пользователя вместо кнопки */
+.header-username {
+    font-weight: 700;
+    color: #2563eb;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.header-username:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+/* Стили для страницы каталога */
+.catalog-content {
+    flex-grow: 1;
+    width: 100%;
+    max-width: 1152px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+}
+
+.catalog-main-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #111827;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+/* Сетка каталога: 1 колонка на мобильных, 3 на ПК */
+.catalog-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+/* Карточка товара */
+.catalog-card {
+    background-color: #ffffff;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Прижимает цену и кнопку к низу */
+    align-items: center;
+    text-align: center;
+    min-height: 550px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.catalog-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.card-top {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.card-img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+    margin-bottom: 1.25rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 0.5rem;
+}
+
+.card-description {
+    font-size: 1rem;
+    color: #4b5563;
+    line-height: 1.5;
+}
+
+.card-bottom {
+    width: 100%;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.card-price {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+}
+
+/* Подать заявку */
+.btn-action {
+    width: 100%;
+    max-width: 240px;
+    height: 3rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #2563eb;
+    background-color: transparent;
+    border: 2px solid #2563eb;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.btn-action:hover {
+    background-color: #2563eb;
+    color: #ffffff;
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.2);
+}
+
+/* Адаптивность для сетки каталога */
+@media (min-width: 768px) {
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Адаптивность для средних и больших экранов (Планшеты и ПК) */
+@media (min-width: 768px) {
+    .hero-section, .info-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-text-block {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .hero-title {
+        font-size: 3.5rem;
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    /* Восстановление правильного визуального порядка блоков для десктопа */
+    .order-mobile-1 {
+        order: 0;
+    }
+    .order-mobile-2 {
+        order: 0;
+    }
+}
+
+@media (min-width: 1024px) {
+    .desktop-only {
+        display: inline;
+    }
+}
+
+/* Полноэкранный контейнер админки (Белая тема) */
+.admin-panel {
+    width: 100%;
+    min-height: 100vh; /* На весь экран */
+    margin: 0;
+    padding: 32px;
+    background-color: #ffffff; /* Белый фон */
+    color: #1f2937; /* Темный текст для контраста */
+    box-sizing: border-box;
+}
+
+/* Шапка админки */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #e5e7eb; /* Светлая аккуратная линия */
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+}
+
+.admin-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+}
+
+.btn-logout-admin {
+    padding: 10px 20px;
+    background-color: #dc2626;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-logout-admin:hover {
+    background-color: #b91c1c;
+}
+
+/* Секции и заголовки */
+.admin-section-block {
+    margin-bottom: 40px;
+}
+
+.admin-subtitle {
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+.text-sky { 
+    color: #296cfd; 
+}
+.text-emerald { 
+    color: #296cfd; 
+} 
+
+/* Таблицы заявок */
+.table-responsive {
+    overflow-x: auto;
+    background-color: #ffffff; 
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+}
+
+.admin-table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.admin-table th {
+    background-color: #f9fafb; /* Светлая шапка таблицы */
+    color: #374151; /* Темно-серый текст */
+    padding: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #e5e7eb;
+}
+
+.admin-table td {
+    padding: 14px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+    vertical-align: middle;
+}
+
+.admin-table tbody tr:hover {
+    background-color: #f3f4f6; /* Легкий серый тон при наведении */
+    transition: background-color 0.15s;
+}
+
+/* Селекты выбора инструкторов внутри строк таблицы */
+.select-inst {
+    background-color: #ffffff;
+    color: #374151;
+    font-size: 13px;
+    padding: 8px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    outline: none;
+    cursor: pointer;
+    transition: border-color 0.2s;
+}
+
+.select-inst:focus {
+    border-color: #296cfd;
+}
+
+/* Сетка для блоков инструкторов */
+.admin-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+}
+
+@media (min-width: 960px) {
+    .admin-grid {
+        grid-template-columns: 1fr 2fr;
+    }
+}
+
+/* Карточки управления (Избавление от серого #d2d2d2 фона) */
+.admin-card-form {
+    background-color: #ffffff; /* Полностью белый фон */
+    border: 1px solid #e5e7eb; /* Тонкая светлая рамка в стиле сайта */
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.admin-card-list {
+    background-color: #ffffff; /* Полностью белый фон */
+    border: 1px solid #e5e7eb;
+    padding: 24px;
+    border-radius: 8px;
+}
+
+.form-group-admin {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Поля ввода */
+.admin-input {
+    width: 100%;
+    padding: 10px 12px;
+    background-color: #ffffff;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    color: #1f2937;
+    outline: none;
+    box-sizing: border-box;
+    transition: all 0.2s;
+}
+
+.admin-input:focus {
+    border-color: #296cfd; /* Изменено под ваш синий брендкод */
+    box-shadow: 0 0 0 3px rgba(41, 108, 253, 0.15);
+}
+
+/* Кнопка отправки формы */
+.btn-submit-admin {
+    width: 100%;
+    padding: 10px;
+    background-color: #296cfd;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-submit-admin:hover {
+    background-color: #1d56d7; /* Скорректирован hover с зеленого на темно-синий */
+}
+
+/* Компактная таблица инструкторов */
+.table-scroll {
+    overflow-y: auto;
+    max-height: 280px;
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+}
+
+.admin-table-compact {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+}
+
+.admin-table-compact th {
+    background-color: #f9fafb;
+    color: #4b5563;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 12px;
+    border-bottom: 2px solid #e5e7eb;
+    position: sticky;
+    top: 0;
+}
+
+.admin-table-compact td {
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+    color: #4b5563;
+}
+
+.text-right { 
+    text-align: right; 
+}
+
+/* Кастомные кнопки статусов внутри строк */
+.btn-app-accept {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #10b981;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.btn-app-accept:hover { background-color: #059669; }
+
+.btn-app-reject {
+    padding: 6px 12px;
+    font-size: 13px;
+    font-weight: 600;
+    background-color: #ef4444;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.15s;
+}
+
+.btn-app-reject:hover { 
+    background-color: #dc2626;
+}
+
+.student-name {
+    color: #111827 !important;
+    font-weight: 600;
+}
+.student-email {
+    color: #4b5563 !important;
+}
+
+.instructor-name {
+    color: #111827 !important; 
+    font-weight: 600;
+}
+.instructor-car {
+    color: #4b5563 !important;
+}
+
+/* Контейнер для галочки и текста */
+.policy-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Стилизация самого чекбокса */
+.policy-checkbox {
+    width: 1rem;
+    height: 1rem;
+    margin-top: 0.15rem; /* Выравнивание по базовой линии текста */
+    cursor: pointer;
+    accent-color: #296cfd; /* Окрашивает галочку в ваш фирменный синий цвет */
+}
+
+/* Текст соглашения */
+.policy-label {
+    font-size: 0.85rem;
+    color: #4b5563; /* Читаемый серый цвет из вашей темы */
+    line-height: 1.3;
+    cursor: pointer;
+    user-select: none; /* Защита от случайного выделения текста при кликах */
+}
+
+/* Ссылка на политику */
+.policy-link {
+    color: #296cfd;
+    text-decoration: none;
+}
+
+.policy-link:hover {
+    text-decoration: underline;
+}
+
+

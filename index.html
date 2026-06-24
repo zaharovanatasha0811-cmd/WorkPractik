@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда авто — Сервис бронирования</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body">
+    <div class="auth-container hidden">
+        <!-- Страница регистрации -->
+        <section id="page-register" class="auth-section">
+            <h2 class="auth-title">Регистрация</h2>
+            <input type="text" id="reg-name" placeholder="Имя пользователя" class="form-input">
+            <input type="email" id="email" placeholder="Почта" class="form-input">
+            <input type="password" id="reg-password" placeholder="Пароль" class="form-input">
+            <input type="password" id="reg-password2" placeholder="Повторите пароль" class="form-input">
+            
+            <!-- НОВЫЙ БЛОК: Согласие на обработку персональных данных -->
+            <div class="policy-wrapper">
+                <input type="checkbox" id="reg-policy" class="policy-checkbox">
+                <label Liga for="reg-policy" class="policy-label">
+                    Я соглашаюсь на <a href="#" class="policy-link">обработку персональных данных</a>
+                </label>
+            </div>
+
+            <button id="btn-register" class="btn-primary">Зарегистрироваться</button>
+            <p class="auth-switch-text">Уже есть аккаунт? <a href="#" id="link-to-login" class="auth-link">Войти</a></p>
+            <p id="reg-error" class="error-text hidden"></p>
+        </section>
+
+        <!-- Страница входа -->
+        <section id="page-login" class="auth-section hidden">
+            <h2 class="auth-title">Вход</h2>
+            <input type="text" id="login-name" placeholder="Имя пользователя" class="form-input">
+            <input type="password" id="login-password" placeholder="Пароль" class="form-input">
+            <button id="btn-login" class="btn-primary">Войти</button>
+            <p class="auth-switch-text">Нет аккаунта? <a href="#" id="link-to-register" class="auth-link">Регистрация</a></p>
+            <p id="login-error" class="error-text hidden"></p>
+        </section>
+        
+        <!-- Личный кабинет -->
+        <section id="page-dashboard" class="auth-section hidden">
+            <h2 class="auth-title">Личный кабинет</h2>
+            <div class="dashboard-info">
+                <p class="user-greeting">Привет, <span id="current-user" class="user-highlight"></span>!</p>
+                <p class="date-text">Сегодня <span id="data" class="date-highlight"></span>!</p>
+            </div>
+
+            <!-- БЛОК МОИХ ЗАЯВОК И КУРСОВ -->
+            <div class="user-courses-block" style="margin-top: 1.5rem;">
+                <h3 style="font-size: 1.1rem; font-weight: 700; margin-bottom: 0.75rem; color: #1f2937;">Моё обучение:</h3>
+                <div class="table-responsive">
+                    <table class="admin-table" style="font-size: 0.875rem;">
+                        <thead>
+                            <tr style="background-color: #f3f4f6;">
+                                <th style="padding: 10px;">Категория</th>
+                                <th style="padding: 10px;">Статус</th>
+                                <th style="padding: 10px;">Инструктор / Авто</th>
+                            </tr>
+                        </thead>
+                        <tbody id="user-apps-list">
+                            <!-- Сюда JS вставит строки -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <button id="btn-curs" class="btn-primary" style="margin-top: 1rem;">Перейти к главной</button>
+            <button id="btn-logout" class="btn-secondary">Выйти</button>
+        </section>
+
+    </div>
+
+    <!-- Панель Администратора -->
+    <section id="page-admin" class="auth-section admin-panel hidden">
+        <div class="admin-header">
+            <h2 class="admin-title">Панель администратора</h2>
+            <button id="btn-admin-logout" class="btn-logout-admin">Выйти</button>
+        </div>
+
+        <!-- Блок Управления Заявками -->
+        <div class="admin-section-block">
+            <h3 class="admin-subtitle text-sky">Заявки на обучение</h3>
+            <div class="table-responsive">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Студент / Email</th>
+                            <th>Категория</th>
+                            <th>Статус</th>
+                            <th>Инструктор</th>
+                            <th>Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-apps-list">
+                        <!-- Сюда JS вставит строки с заявками -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Блок Инструкторов -->
+        <div class="admin-grid">
+            <!-- Форма добавления -->
+            <div class="admin-card-form">
+                <h3 class="admin-subtitle text-emerald">Добавить инструктора</h3>
+                <div class="form-group-admin">
+                    <input type="text" id="inst-name" placeholder="ФИО инструктора" class="admin-input">
+                    <input type="text" id="inst-car" placeholder="Автомобиль (Марка, госномер)" class="admin-input">
+                    <input type="text" id="inst-cat" placeholder="Категория (например: B)" class="admin-input">
+                    <button id="btn-add-instructor" class="btn-submit-admin">Сохранить</button>
+                </div>
+            </div>
+
+            <!-- Список инструкторов -->
+            <div class="admin-card-list">
+                <h3 class="admin-subtitle text-emerald">Список инструкторов</h3>
+                <div class="table-scroll">
+                    <table class="admin-table-compact">
+                        <thead>
+                            <tr>
+                                <th>Инструктор / Авто</th>
+                                <th>Категория</th>
+                                <th class="text-right">Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody id="admin-instructors-list">
+                            <!-- Сюда JS вставит список инструкторов -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Первая страница -->
+    <section id="firstList" class="main-page">
+        <header class="site-header">
+            <div class="header-container">
+                <div class="site-logo">
+                    <h2>Ink.House</h2>
+                </div>
+                <div class="search-wrapper">
+                    <input type="search" id="search" placeholder="Поиск" class="search-input">
+                </div>
+                <div id="auth-header-block">
+                    <button id="btn-header-auth" class="btn-header">Войти / Регистрация</button>
+                </div>
+            </div>
+        </header>
+
+        <main class="site-content">
+            <div class="hero-section">
+                <div class="hero-text-block">
+                    <h1 class="hero-title">
+                        Аренда автомобилей в Великом Новгороде
+                    </h1>
+                    <div id="btn-katalog">
+                        <button class="btn-large">Продукция</button>
+                    </div>
+                </div>
+                <div class="image-wrapper">
+                    <img src="images/img3.jpg" alt="Главное изображение" class="responsive-img">
+                </div>
+            </div>
+                
+            <div class="info-section">
+                <div class="image-wrapper order-mobile-2">
+                    <img src="images/img2.jpg" alt="Обучение" class="responsive-img">
+                </div>
+                <div class="info-text-block order-mobile-1">
+                    <h2 class="section-title">Программа обучения</h2>
+                    <p class="section-paragraph">
+                        Ваше время — главный ресурс. Не отвлекайтесь на логистику: сервис AutoRent обеспечит вас идеальным автомобилем для деловых поездок и VIP-встреч. Идеальное техническое состояние, кожаный салон, климат-контроль и полный пакет отчетных документов для бухгалтерии.
+                    </p>
+                    <div id="btn-katalog1">
+                        <button class="btn-large">Ознакомиться</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-section">
+                <div class="image-wrapper">
+                    <img src="images/img1.jpg" alt="Команда" class="responsive-img">
+                </div>
+                <div class="info-text-block">
+                    <h2 class="section-title">Наша команда</h2>
+                    <p class="section-paragraph">
+                        Мы в AutoRent знаем, что для каждого повода нужен свой автомобиль. Поэтому мы сформировали диверсифицированный автопарк, где каждая машина проходит регулярное техническое обслуживание, комплексную химчистку перед выдачей и застрахована.
+                    </p>
+                    <div id="btn-katalog2">
+                        <button class="btn-large">Продукция</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-grid">
+                
+                <div class="footer-col">
+                    <p class="footer-link-item">Telegram</p>
+                    <p class="footer-link-item">Макс</p>
+                </div>
+                    
+                <div class="footer-col">
+                    <a href="#" class="footer-link">Каталог</a>
+                </div>
+
+                <div class="footer-col">
+                    <p class="footer-link-item">Контакты</p>
+                </div>
+
+                <div class="footer-col">
+                    <a href="#" class="footer-link leading-tight">
+                        Информация об оплате обучения
+                    </a>
+                </div>
+
+            </div>
+        </footer>
+    </section>
+
+    <!-- Каталог -->
+    <section id="katalog" class="hidden">
+        <!-- Шапка каталога -->
+        <header class="site-header">
+            <div class="header-container">
+                <div class="site-logo logo-click-trigger">
+                    <h2>Ink.House</h2>
+                </div>
+                <div class="search-wrapper">
+                    <input type="search" placeholder="Поиск" class="search-input header-search-trigger">
+                </div>
+                <div class="auth-header-placement">
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной контент каталога -->
+        <main class="catalog-content">
+            <h1 class="catalog-main-title">Наши направления обучения</h1>
+            
+            <div class="catalog-grid">
+            
+                <!-- Карточка 1: Категория А -->
+                <div class="catalog-card">
+                    <div class="card-top">
+                        <img class="card-img" src="images/1.jpg" alt="Категория А">
+                        <h3 class="card-title">Категория А</h3>
+                        <p class="card-description">Подготовка водителей категории «А»/«А1»</p>
+                    </div>
+                    <div class="card-bottom">
+                        <p class="card-price">20 500 руб</p>
+                        <button class="btn-action" data-category="A">Подать заявку</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 2: Категория B -->
+                <div class="catalog-card">
+                    <div class="card-top">
+                        <img class="card-img" src="images/2.jpg" alt="Категория B">
+                        <h3 class="card-title">Категория B</h3>
+                        <p class="card-description">Подготовка водителей категории «В» МЕХАНИКА</p>
+                    </div>
+                    <div class="card-bottom">
+                        <p class="card-price">60 500 руб</p>
+                        <button class="btn-action" data-category="B">Подать заявку</button>
+                    </div>
+                </div>
+                    
+                <!-- Карточка 3: Категория C -->
+                <div class="catalog-card">
+                    <div class="card-top">
+                        <img class="card-img" src="images/3.jpg" alt="Категория C">
+                        <h3 class="card-title">Категория C</h3>
+                        <p class="card-description">Переподготовка водителей с категории «В» на «C»</p>
+                    </div>
+                    <div class="card-bottom">
+                        <p class="card-price">25 500 руб</p>
+                        <button class="btn-action" data-category="C">Подать заявку</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Подвал каталога -->
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <p class="footer-link-item">Telegram</p>
+                    <p class="footer-link-item">Макс</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-link catalog-link-trigger">Каталог</span>
+                </div>
+                <div class="footer-col">
+                    <p class="footer-link-item">Контакты</p>
+                </div>
+                <div class="footer-col">
+                    <span class="footer-link">Информация об оплате обучения</span>
+                </div>
+            </div>
+        </footer>
+    </section>
+
+    <script>
+        const sessionUser = "<?= $_SESSION['username'] ?? '' ?>";
+    </script>
+    <script src="index.js"></script>    
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аренда авто — Сервис бронирования</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body">
+    <div class="auth-container hidden"></div>
+        <section id="page-register" class="auth-section">
+            <h2 class="auth-title">Бронирование авто</h2>
+            <input type="text" id="reg-name" placeholder="ФИО" class="form-input">
+            <input type="email" id="email" placeholder="Почта" class="form-input">
+            <input type="text" id="reg-password" placeholder="Удостоверение" class="form-input">
+            <input type="text" id="reg-password2" placeholder="Повторите пароль" class="form-input">
+                
+            <!-- НОВЫЙ БЛОК: Согласие на обработку персональных данных -->
+            <div class="policy-wrapper">
+                <input type="checkbox" id="reg-policy" class="policy-checkbox">
+                <label Liga for="reg-policy" class="policy-label">
+                    Я соглашаюсь на <a href="#" class="policy-link">обработку персональных данных</a>
+                </label>
+            </div>
+
+            <button id="btn-register" class="btn-primary">Забронировать</button>
+            <a href="#" id="link-to-login" class="auth-link">Назад</a>
+        </section>
+    </div>
+</body>
+</html>
