@@ -123,7 +123,7 @@ html, body {
 .hero-text-block, .info-text-block {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 3.5rem;
 }
 
 .hero-title {
