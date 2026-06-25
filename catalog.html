@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Каталог автомобилей — AutoRent</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="site-body">
+    <!-- Секция каталога (класс hidden убран для отображения) -->
+    <section id="katalog" class="catalog-page">
+        
+        <!-- Шапка каталога -->
+        <header class="site-header">
+            <div class="header-container">
+                <div class="site-logo logo-click-trigger">
+                    <h2>AutoRent</h2>
+                </div>
+                <div class="search-wrapper">
+                    <input type="search" placeholder="Поиск марки или модели" class="search-input header-search-trigger">
+                </div>
+                <div class="auth-header-placement">
+                    <button id="btn-header-auth" class="btn-header">Войти</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основной контент каталога -->
+        <main class="catalog-content">
+            <h1 class="catalog-main-title">Наш автопарк в Великом Новгороде</h1>
+            
+            <div class="catalog-grid">
+            
+                <!-- Карточка 1: Эконом -->
+                <div class="catalog-card">
+                    <div class="card-top">
+                        <img class="card-img" src="images/henday.jpeg" alt="Hyundai Solaris">
+                        <h3 class="card-title">Класс «Эконом»</h3>
+                        <p class="card-description">Hyundai Solaris или аналог (АКПП, 1.6л, кондиционер)</p>
+                    </div>
+                    <div class="card-bottom">
+                        <p class="card-price">от 2 500 руб / сут</p>
+                        <button class="btn-action" data-car-class="economy">Забронировать</button>
+                    </div>
+                </div>
+
+                <!-- Карточка 2: Комфорт -->
+                <div class="catalog-card">
+                    <div class="card-top">
+                        <img class="card-img" src="images/kia.jpeg" alt="Skoda Octavia">
+                        <h3 class="card-title">Класс «Комфорт»</h3>
+                        <p class="card-description">Skoda Octavia или аналог (АКПП, климат-контроль, просторный салон)</p>
+                    </div>
+                    <div class="card-bottom">
+                        <p class="card-price">от 4 000 руб / сут</p>
+                        <button class="btn-action" data-car-class="comfort">Забронировать</button>
+                    </div>
+                </div>
+                    
+                <!-- Карточка 3: Бизнес -->
+                <div class="catalog-card">
+                    <div class="card-top">
+                        <img class="card-img" src="images/wedro.jpeg" alt="Toyota Camry">
+                        <h3 class="card-title">Класс «Бизнес»</h3>
+                        <p class="card-description">Toyota Camry или аналог (Кожаный салон, VIP-статус, полный электропакет)</p>
+                    </div>
+                    <div class="card-bottom">
+                        <p class="card-price">от 7 500 руб / сут</p>
+                        <button class="btn-action" data-car-class="business">Забронировать</button>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+        <!-- Подвал каталога -->
+        <footer class="site-footer">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="https://t.me" class="footer-link-item">Telegram</a>
+                    <a href="#" class="footer-link-item">Контакты руководителя</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#" class="footer-link catalog-link-trigger">Каталог авто</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#" class="footer-link">Адреса офисов</a>
+                </div>
+                <div class="footer-col">
+                    <a href="#" class="footer-link">Условия аренды и страхования</a>
+                </div>
+            </div>
+        </footer>
+    </section>
+</body>
+</html>
