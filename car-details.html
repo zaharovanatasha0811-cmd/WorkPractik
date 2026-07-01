@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Аренда авто — Сервис бронирования</title>
+    <title>Аренда авто</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body class="site-body">
+    <!-- Шапка сайта -->
     <header class="site-header">
         <div class="header-container">
             <div class="site-logo">
-            <h2>AutoRent</h2>
+            <h2>АвтоРенда</h2>
             </div>
             <div class="search-wrapper">
                 <input type="search" id="search" placeholder="Поиск автомобиля" class="search-input">
@@ -20,8 +21,56 @@
             </div>
         </div>
     </header>
+
+    <main>
+        <a href="catalog.html" class="back-link">← Вернуться в каталог</a>
+        
+        <div class="car-details">
+            <!-- Блок с фото машины -->
+            <div class="car-image">
+                <!-- Замените src на вашу реальную картинку Шкоды Октавии -->
+                <img src="images/kia.jpeg" alt="Skoda Octavia">
+            </div>
+            
+            <!-- Блок с описанием и характеристиками -->
+            <div class="car-info">
+                <span class="class-badge">Класс «Комфорт»</span>
+                <h1>Skoda Octavia</h1>
+                
+                <div class="price-box">
+                    от 4 000 руб <span>/ сутки</span>
+                </div>
+                
+                <div class="specs">
+                    <h3>Характеристики автомобиля</h3>
+                    <div class="spec-item">
+                        <span class="spec-label">Коробка передач</span>
+                        <span class="spec-value">Автоматическая (АКПП)</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Двигатель</span>
+                        <span class="spec-value">1.6 л / 110 л.с. / Бензин</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Климат-контроль</span>
+                        <span class="spec-value">Двухзонный</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Привод</span>
+                        <span class="spec-value">Передний</span>
+                    </div>
+                    <div class="spec-item">
+                        <span class="spec-label">Вместимость</span>
+                        <span class="spec-value">5 мест / большой багажник</span>
+                    </div>
+                </div>
+
+                <a href="booking.html" class="btn-booking">Забронировать этот автомобиль</a>
+            </div>
+        </div>
+    </main>
     
-            <!-- Подвал каталога -->
+    <!-- Подвал каталога -->
     <footer class="site-footer">
         <div class="footer-grid">
             <div class="footer-col">
